@@ -130,8 +130,7 @@ body{
   right:10px;
   height: 100px;
   width:100px;
-  background-color: black;
-  opacity:0.5;
+  background-color: white;
   border-radius: 50%;
   z-index:3;
 }
@@ -142,7 +141,7 @@ body{
   left:30px;
   height: 350px;
   width: 350px;
-  background-color: white;
+  background-color: transparent;
   z-index:4;
   padding: 20px;
   display: none;
@@ -151,4 +150,14 @@ body{
 #explorePopup h4{
     font-size: 30px;
     text-align: center;
+}
+
+#explorePopup #sound{
+  width: 60px;
+  margin-top: 225px;
+  margin-left: 125px;
+}
+
+#explorePopup #exploreGif{
+  width: 300px;
 }
