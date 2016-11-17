@@ -36,6 +36,7 @@ $(document).ready(function(){
     $("#loadingScreen").css("display","none");
     $("#mainScreen").css("display","block");
     mapInit();
+
   }, 3000);
 
   $("#exploreBtn").click(function(){
@@ -46,6 +47,9 @@ $(document).ready(function(){
       setTimeout(function(){
           $("#explorePopup").css("display","block");
       },350);
+      setTimeout(function(){
+        $("#poiInfo").css("display", "block");
+      },5000);
     }
     else if(exploreState == 1){
       exploreState = 0;

@@ -156,8 +156,23 @@ body{
   width: 60px;
   margin-top: 225px;
   margin-left: 125px;
+  z-index:4;
 }
 
 #explorePopup #exploreGif{
   width: 300px;
+  z-index:4;
+}
+
+#poiInfo{
+  height:100vh;
+  width:100vw;
+  position: fixed;
+  z-index:5;
+  display: none;
+}
+#poiInfo h4{
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
 }
