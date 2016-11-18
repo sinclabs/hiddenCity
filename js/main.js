@@ -30,7 +30,7 @@ function mapInit() {
                });
            }
 
-var menuState = 0, exploreState = 0, volumeState = 0;
+var menuState = 0, exploreState = 0, volumeState = 0, moreState = 0;
 $(document).ready(function(){
   setTimeout(function(){
     $("#loadingScreen").css("display","none");
@@ -92,5 +92,26 @@ $(document).ready(function(){
       volumeState = 0;
       $(this).attr("src","data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU4IDU4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1OCA1ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxjaXJjbGUgc3R5bGU9ImZpbGw6IzM4NDU0RjsiIGN4PSIyOSIgY3k9IjI5IiByPSIyOSIvPgo8cGF0aCBzdHlsZT0iZmlsbDojNzM4M0JGOyIgZD0iTTIyLjQyNywyMGgtOC4zMjNDMTIuOTQyLDIwLDEyLDIwLjk0MiwxMiwyMi4xMDR2MTIuNzkzQzEyLDM2LjA1OCwxMi45NDIsMzcsMTQuMTA0LDM3aDguMzIzICBjMC4zNzUsMCwwLjc0MywwLjEsMS4wNjcsMC4yOUwzNi44Myw0OS43MDZDMzguMjMyLDUwLjUzMSw0MCw0OS41Miw0MCw0Ny44OTNWOS4xMDdjMC0xLjYyNy0xLjc2OC0yLjYzOC0zLjE3LTEuODEzTDIzLjQ5NCwxOS43MSAgQzIzLjE3LDE5LjksMjIuODAyLDIwLDIyLjQyNywyMHoiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==");
     }
+  });
+
+  $("#moreButton").click(function(){
+
+      <!--$("#theaterpic").animate({marginTop:'-=150px'});-->
+      $("#theaterpic").animate({height:'-=150px'});
+      $("#starbutton").animate({marginTop:'-=150px'});
+      $("#moreText").css("display", "block");
+      $("#moreButton").css("display", "none");
+      <!--more info text too-->
+    
+  });
+
+  $("#backbutton").click(function() {
+    setTimeout(function(){
+        $("#explorePopup").css("display","block");
+        $("#poiInfo").css("display", "none");
+        $("#theaterpic").animate({height:'+=150px'});
+        $("#starbutton").animate({marginTop:'+=150px'});
+        $("#moreText").css("display", "none");
+    },350);
   });
 });
