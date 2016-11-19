@@ -58,9 +58,10 @@ $(document).ready(function(){
       $("#exploreBackground").animate({width: "-=312px", height: "-=632px", "border-radius": "50%", bottom: "+=20px", right: "+=10px"});
       $("#explorePopup").css("display","none");
       $("#poiInfo").css("display", "none");
-      $("#theaterpic").animate({height:'+=150px'});
-      $("#starbutton").animate({marginTop:'+=150px'});
+      $("#theaterpic").css("width",'100%');
+      $("#starbutton").animate({marginTop:'=150px'});
       $("#moreText").css("display", "none");
+
     }
 
   });
