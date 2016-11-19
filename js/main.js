@@ -35,6 +35,7 @@ $(document).ready(function(){
   setTimeout(function(){
     $("#loadingScreen").css("display","none");
     $("#mainScreen").css("display","block");
+    $("#exploreBtn").css("display","block");
     mapInit();
 
   }, 3000);
@@ -56,6 +57,10 @@ $(document).ready(function(){
       $("#exploreBtn").css("background","white");
       $("#exploreBackground").animate({width: "-=312px", height: "-=632px", "border-radius": "50%", bottom: "+=20px", right: "+=10px"});
       $("#explorePopup").css("display","none");
+      $("#poiInfo").css("display", "none");
+      $("#theaterpic").animate({height:'+=150px'});
+      $("#starbutton").animate({marginTop:'+=150px'});
+      $("#moreText").css("display", "none");
     }
 
   });
@@ -102,7 +107,7 @@ $(document).ready(function(){
       $("#moreText").css("display", "block");
       $("#moreButton").css("display", "none");
       <!--more info text too-->
-    
+
   });
 
   $("#backbutton").click(function() {
