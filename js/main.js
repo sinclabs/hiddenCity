@@ -2,12 +2,23 @@
 function mapInit() {
                // Basic options for a simple Google Map
                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                  if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                      initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                      map.setCenter(initialLocation);
+                    });
+                  }
+
+                  
+
                var mapOptions = {
                    // How zoomed in you want the map to start at (always required)
                    zoom: 14,
 
                    // The latitude and longitude to center the map (always required)
                    center: new google.maps.LatLng(59.3269414, 18.0681448), // Stockholm
+
+
 
                    disableDefaultUI: true,
 
@@ -22,16 +33,35 @@ function mapInit() {
                // Create the Google Map using our element and options defined above
                var map = new google.maps.Map(mapElement, mapOptions);
 
-               // Let's also add a marker while we're at it
+               /* Let's also add a marker while we're at it
                var marker = new google.maps.Marker({
                    position: new google.maps.LatLng(59.3269414, 18.0681448),
                    map: map,
                    title: 'You are here!'
                });
+               */
            }
+
 
 var menuState = 0, exploreState = 0, volumeState = 0, moreState = 0;
 $(document).ready(function(){
+
+
+  $(".circle div").click(function() {
+    $(this).toggleClass("selectedOption"); 
+  });
+
+  var items = document.querySelectorAll('.circle div');
+
+  for(var i = 0, l = items.length; i < l; i++) {
+    items[i].style.left = (50 - 45*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+    
+    items[i].style.top = (50 + 45*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+  }
+
+  document.querySelector('.menu-button').onclick = function(e) {
+     e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+  }
   setTimeout(function(){
     $("#loadingScreen").css("display","none");
     $("#mainScreen").css("display","block");
@@ -40,16 +70,18 @@ $(document).ready(function(){
 
   }, 3000);
 
+  $(".circular-menu").click(function(){
+  });
+
   $("#exploreBtn").click(function(){
     if(exploreState == 0){
       exploreState = 1;
-      $("#exploreBtn").css("background","rgb(231, 76, 60)");
-      $("#exploreBackground").animate({width: "+=312px", height: "+=632px", "border-radius": "0", bottom: "-=20px", right: "-=10px"});
+      $(".circular-menu").css("background","rgba(0,0,0,.5)");
       setTimeout(function(){
-          $("#explorePopup").css("display","block");
+          $("#explorePopup").css("display","none");
       },350);
       setTimeout(function(){
-        $("#poiInfo").css("display", "block");
+        $("#poiInfo").css("display", "none");
       },5000);
     }
     else if(exploreState == 1){
@@ -64,29 +96,6 @@ $(document).ready(function(){
 
     }
 
-  });
-  $("#filterBtn").click(function(){
-    if(menuState == 0){
-      menuState = 1;
-      $("#filterOpt1").animate({bottom:"+=100px"});
-      $("#filterOpt2").animate({bottom:"+=190px"});
-      $("#filterOpt3").animate({bottom:"+=280px"});
-    }
-    else if(menuState == 1){
-      menuState = 0;
-      $("#filterOpt1").animate({bottom:"-=100px"});
-      $("#filterOpt2").animate({bottom:"-=190px"});
-      $("#filterOpt3").animate({bottom:"-=280px"});
-    }
-  });
-
-  $(".filterOptions").click(function(){
-    if($(this).hasClass("selectedOption")){
-      $(this).removeClass("selectedOption");
-    }
-    else{
-      $(this).addClass("selectedOption");
-    }
   });
 
   $("#explorePopup img").click(function(){

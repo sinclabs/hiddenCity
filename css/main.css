@@ -8,6 +8,71 @@ body{
   padding:0 !important;
 }
 
+@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+.circular-menu {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1000;
+}
+
+.circle {
+  position: absolute;
+  top: 50%; 
+  left: 50%;                        /* 3 */
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+    z-index: 1000;
+  -webkit-transform: scale(0) translate(-50%, -50%);
+  -moz-transform: scale(0) translate(-50%, -50%);
+  transform: scale(0) translate(-50%, -50%);
+
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.open.circle {
+  opacity: 1;
+  z-index: 1000;
+  -webkit-transform: scale(1) translate(-50%, -50%);
+  -moz-transform: scale(1) translate(-50%, -50%);
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.circle div {
+  text-decoration: none;
+  background-color: white;
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 36px;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  text-align: center;
+  z-index: 1001;
+}
+
+.menu-button {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  text-decoration: none;
+  text-align: center;
+  color: #444;
+  border-radius: 50%;
+  display: block;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  background: #dde;
+}
+
 #loadingScreen{
   height:100vh;
   width:100vw;
@@ -66,22 +131,22 @@ body{
   background: transparent;
 }
 #exploreBtn{
-  position: fixed;
-  bottom:20px;
-  right:10px;
-  height: 100px;
-  width:100px;
+  position: absolute;
+  top: 50%; 
+  left: 50%;                        /* 3 */
+  transform: translate(-50%, -50%);   /* 4 */
+  height: 50px;
+  width: 50px;
   background-color: white;
-  padding: 20px;
+  padding: 8px;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   z-index:7;
-  display: none;
 }
 
 #exploreBtn img{
-  height: 62px;
-  width:62px;
+  height: 34px;
+  width: 34px;
   z-index:4;
 }
 
@@ -105,36 +170,20 @@ body{
 }
 
 .filterOptions{
-  position: fixed;
-  bottom:30px;
-  left:20px;
-  height: 80px;
-  width:80px;
-  background-color: white;
-  padding: 20px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   z-index: 1;
 }
 
 .selectedOption{
-  background-color: rgb(52, 152, 219);
+  background-color: #9C27B0!important;
 }
 
 .filterOptions img{
-  height: 40px;
-  width:40px;
-}
-
-#exploreBackground{
-  position: fixed;
-  bottom:20px;
-  right:10px;
-  height: 100px;
-  width:100px;
-  background-color: white;
-  border-radius: 50%;
-  z-index:3;
+  height: 27px;
+  width:27px;
 }
 
 #explorePopup{
