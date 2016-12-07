@@ -9,7 +9,7 @@ function mapInit() {
                     });
                   }
 
-                  
+
 
                var mapOptions = {
                    // How zoomed in you want the map to start at (always required)
@@ -46,16 +46,21 @@ function mapInit() {
 var menuState = 0, exploreState = 0, volumeState = 0, moreState = 0;
 $(document).ready(function(){
 
-
+  document.addEventListener('click', function(e) {
+    e = e || window.event;
+    // var target = e.target || e.srcElement,
+    //     text = target.textContent || text.innerText;
+    console.log(e.srcElement);
+  }, false);
   $(".circle div").click(function() {
-    $(this).toggleClass("selectedOption"); 
+    $(this).toggleClass("selectedOption");
   });
 
   var items = document.querySelectorAll('.circle div');
 
   for(var i = 0, l = items.length; i < l; i++) {
     items[i].style.left = (50 - 45*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-    
+
     items[i].style.top = (50 + 45*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
   }
 
@@ -71,6 +76,9 @@ $(document).ready(function(){
   }, 3000);
 
   $(".circular-menu").click(function(){
+    exploreState = 0;
+    $(".circular-menu").css("background","transparent");
+    $(".circle").removeClass("open");
   });
 
   $("#exploreBtn").click(function(){
@@ -128,5 +136,7 @@ $(document).ready(function(){
         $("#starbutton").animate({marginTop:'+=150px'});
         $("#moreText").css("display", "none");
     },350);
+
+
   });
 });
