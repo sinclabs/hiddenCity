@@ -44,6 +44,7 @@
 
 
 $(document).ready(function(){
+  $('#heading').text("none yet");
   if (window.DeviceOrientationEvent) {
     // Listen for the deviceorientation event and handle the raw data
     window.addEventListener('deviceorientation', function(eventData) {
@@ -54,8 +55,11 @@ $(document).ready(function(){
         compassdir = event.webkitCompassHeading;
       }
       else compassdir = event.alpha;
+
+      $('#heading').innerText(compassdir);
     });
   }
+
   $('.category').click(function(){
     $(this).toggleClass('inactive');
   });
