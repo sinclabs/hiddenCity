@@ -1,279 +1,112 @@
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-body{
+body, .container-fluid{
   padding:0 !important;
 }
 
-@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
-
-.circular-menu {
+.screen{
+  position:fixed;
+  top:0;
+  left:0;
   width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  z-index: 6;
+  background: #252020;
+  color: white;
 }
 
-.circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;                        /* 3 */
-  width: 250px;
-  height: 250px;
-  opacity: 0;
-    z-index: 1000;
-  -webkit-transform: scale(0) translate(-50%, -50%);
-  -moz-transform: scale(0) translate(-50%, -50%);
-  transform: scale(0) translate(-50%, -50%);
 
-  -webkit-transition: all 0.4s ease-out;
-  -moz-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.open.circle {
-  opacity: 1;
-  z-index: 1000;
-  -webkit-transform: scale(1) translate(-50%, -50%);
-  -moz-transform: scale(1) translate(-50%, -50%);
-  transform: scale(1) translate(-50%, -50%);
-}
-
-.circle div {
-  text-decoration: none;
-  background-color: white;
-  display: block;
-  height: 40px;
-  width: 40px;
-  line-height: 36px;
-  margin-left: -20px;
-  margin-top: -20px;
-  position: absolute;
-  text-align: center;
-  z-index: 1001;
-}
-
-.menu-button {
-  position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  text-decoration: none;
-  text-align: center;
-  color: #444;
-  border-radius: 50%;
-  display: block;
-  height: 40px;
-  width: 40px;
-  padding: 10px;
-  background: #dde;
-}
-
-#loadingScreen{
-  height:100vh;
-  width:100vw;
-  position: fixed;
-  top:0;
-  left:0;
-  z-index:0;
-  background:#ffffff;
-}
-
-#mainLogo{
-  width: 387px;
-  margin-left: 0px;
-  margin-top: 220px;
-}
-
-#mainText{
-  color:white;
-  font-family: 'Quicksand', sans-serif;
-  margin-left:105px;
-}
-
-#mainScreen{
-  height:100vh;
-  width:100vw;
-  position: fixed;
-  top:0;
-  left:0;
-  z-index:0;
-  padding: 0 !important;
-  display: none;
-}
-
-#map{
-  height:100vh;
-  width:100vw;
-  position: fixed;
-  top:0;
-  left:0;
-  padding: 0 !important;
-  margin: 0 !important;
-  z-index:1;
-}
-
-#topBar{
-  position: fixed;
-  top:0;
-  left:0;
-  padding: 0 !important;
-  margin: 0 !important;
-  z-index:2;
-}
-.topBarBackground{
-  height: 50px;
-  width:100vw;
-  background: transparent;
-}
-#exploreBtn{
-  position: absolute;
-  top: 50%;
-  left: 50%;                        /* 3 */
-  transform: translate(-50%, -50%);   /* 4 */
-  height: 50px;
-  width: 50px;
-  background-color: white;
-  padding: 8px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  z-index:7;
-}
-
-#exploreBtn img{
-  height: 34px;
-  width: 34px;
-  z-index:4;
-}
-
-#filterBtn{
-  position: fixed;
-  bottom:20px;
-  left:10px;
-  height: 100px;
-  width:100px;
-  background-color: white;
-  padding: 26px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  z-index:2;
-}
-
-#filterBtn img{
-  height: 50px;
-  width:50px;
-  z-index:2;
-}
-
-.filterOptions{
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+/*Splash Screen*/
+#splashScreen{
   z-index: 1;
 }
 
-.selectedOption{
-  background-color: #9C27B0!important;
+#splashScreen>img{
+  width:100%;
+  margin-top:50%;
 }
 
-.filterOptions img{
-  height: 27px;
-  width:27px;
+#splashScreen>p{
+  font-family:"quicksand";
+  text-align: center;
+  margin-top:30px;
 }
 
-#explorePopup{
+
+/*compassScreen*/
+#compassScreen{
+  z-index: 2;
+  /*display: none;*/
+}
+
+#royalCircle{
+  width:300px;
+  height:300px;
+  margin:auto;
+  margin-top:150px;
+  margin-left:20px;
+  border-radius: 50%;
+  background: rgb(46, 204, 113);
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 67px solid rgb(46, 204, 113);
   position: fixed;
-  top:100px;
-  left:30px;
-  height: 350px;
-  width: 350px;
-  background-color: transparent;
-  z-index:4;
-  padding: 20px;
-  display: none;
+  top: 100px;
+  left: 135px;
 }
 
-#explorePopup h4{
-    font-size: 30px;
-    text-align: center;
-}
-
-#explorePopup #sound{
-  width: 60px;
-  margin-top: 225px;
-  margin-left: 125px;
-  z-index:4;
-}
-
-#explorePopup #exploreGif{
-  width: 300px;
-  z-index:4;
-}
-
-#poiInfo{
-  height:100vh;
-  width:100vw;
+.category {
+  width: 0;
+  height: 0;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+  border-top: 118px solid;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  /* border-radius: 50%; */
+  /* background: rebeccapurple; */
+  /* border-top-left-radius: 50%; */
   position: fixed;
-  z-index:5;
-  display: none;
-  background-color: white;
-  padding:0;
-}
-
-
-#poiInfo #picTitle{
-  font-size: 30px;
-  text-align:center;
-  font-weight:350;
-}
-#poiInfo #starbutton{
-    position: absolute;
-    z-index:6;
-    right: 30px;
-    top: 250px;
-
-}
-#poiInfo #backbutton{
-  position:absolute;
-  z-index:6;
-  left:20px;
-  top:15px;
-  width:40px;
-  height:40px;
-}
-
-#poiInfo #openingHours{
-  text-align: justify;
-  margin:12px;
-}
-#poiInfo #infoText{
-  line-height: 1.8em;
-  left:10px;
-  right:10px;
-  font-size: 1.1em;
-  margin:12px;
-
-
-}
-#poiInfo #moreText{
-  line-height: 1.8em;
-  left:10px;
-  right:10px;
-  font-size:1.1em;
-  margin:12px;
-  display: none;
-
 
 }
 
+.category.cat1{
+  top: 179px;
+  left: 93px;
+  transform: rotate(-7deg);
+  border-top-color: rgb(231, 76, 60);
+}
 
-#poiInfo #moreButton{
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
+.category.cat2 {
+  top: 280px;
+  left: 140px;
+  transform: rotate(137deg);
+  border-top-color: rgb(155, 89, 182);
+}
+
+.category.cat3 {
+  top: 227px;
+  left: 41px;
+  transform: rotate(281deg);
+  border-top-color: rgb(241, 196, 15);
+}
+
+.category.cat4 {
+  top: 212px;
+  left: 155px;
+  transform: rotate(65deg);
+  border-top-color: rgb(41, 128, 185);
+}
+
+.category.cat5 {
+  top: 290px;
+  left: 71px;
+  transform: rotate(209deg);
+  border-top-color: rgb(230, 126, 34) ;
+}
+
+.inactive{
+  border-top-color: rgb(149, 165, 166) !important;
 }
