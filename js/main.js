@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       // Call the function to use the data on the page.
       // Roep de functie op om de data op de pagina te gebruiken.
-      document.getElementById("heading").innerHTML = calcDirection(dir);
+      updateCircle(calcDirection(dir));
       //deviceOrientationHandler(tiltLR, tiltFB, dir);
     }, false);
   }
@@ -97,6 +97,26 @@ function calcDirection(heading){
     return 'NW';
   }
 }
+
+function updateCircle(direction){
+  if(direction == 'NE'){
+    var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.stores]);
+    $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
+    $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NE.art/largest+")");
+    $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NE.cafe/largest+")");
+    $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NE.restaurant/largest+")");
+    $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NE.stores/largest+")");
+  }
+  else if(direction == 'SE'){
+
+  }
+  else if(direction == 'NW'){
+
+  }
+  else if(direction == 'SW'){
+
+  }
+}
 $(document).ready(function(){
   $('.category').click(function(){
     $(this).toggleClass('inactive');
@@ -120,6 +140,35 @@ $(document).ready(function(){
 		 $("#speakerBtn2").css("display", "none");
 		 $("#speakerBtn1").css("display", "block");
 	 });
-
-
 });
+
+var Data = {
+  'NE': {
+    'history': 20,
+    'art': 10,
+    'cafe': 5,
+    'restaurant': 6,
+    'stores' : 2
+  },
+  'SE': {
+    'history': 5,
+    'art': 20,
+    'cafe': 5,
+    'restaurant': 5,
+    'stores' : 5
+  },
+  'NW': {
+    'history': 2,
+    'art': 0,
+    'cafe': 20,
+    'restaurant': 22,
+    'stores': 10
+  },
+  'SW': {
+    'history': 4,
+    'art': 6,
+    'cafe': 10,
+    'restaurant': 15,
+    'stores': 20
+  }
+}
