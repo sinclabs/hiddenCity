@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       // Call the function to use the data on the page.
       // Roep de functie op om de data op de pagina te gebruiken.
-      document.getElementById("heading").innerHTML = dir+" deg";
+      document.getElementById("heading").innerHTML = dir;
       //deviceOrientationHandler(tiltLR, tiltFB, dir);
     }, false);
   }
@@ -83,7 +83,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
 });
-
+function calcDirection(heading){
+  if(heading >= 0 && heading < 90){
+    return 'NE';
+  }
+  else if(heading >= 90 && heading < 180){
+    return 'SE';
+  }
+  else if(heading >= 180 && heading < 270){
+    return 'SW';
+  }
+  else if(heading >= 270 && heading <= 360){
+    return 'NW';
+  }
+}
 $(document).ready(function(){
   $('.category').click(function(){
     $(this).toggleClass('inactive');
