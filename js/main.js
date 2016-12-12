@@ -43,45 +43,15 @@
 //            }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-
 	if (window.DeviceOrientationEvent) {
-
     window.addEventListener('deviceorientation', function(eventData) {
-    	// gamma: Tilting the device from left to right. Tilting the device to the right will result in a positive value.
-      // gamma: Het kantelen van links naar rechts in graden. Naar rechts kantelen zal een positieve waarde geven.
-      var tiltLR = eventData.gamma;
-
-      // beta: Tilting the device from the front to the back. Tilting the device to the front will result in a positive value.
-      // beta: Het kantelen van voor naar achteren in graden. Naar voren kantelen zal een positieve waarde geven.
-      var tiltFB = eventData.beta;
-
-      // alpha: The direction the compass of the device aims to in degrees.
-      // alpha: De richting waarin de kompas van het apparaat heen wijst in graden.
       var dir = eventData.alpha
-
-      // Call the function to use the data on the page.
-      // Roep de functie op om de data op de pagina te gebruiken.
-      updateCircle(calcDirection(dir));
-      //deviceOrientationHandler(tiltLR, tiltFB, dir);
+      updateCircle(getData(dir));
     }, false);
   }
   else {
-    document.getElementById("heading").innerHTML = "Helaas. De DeviceOrientationEvent API word niet door dit toestel ondersteund."
-  };
-
-    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
-      document.getElementById("tiltLR").innerHTML = Math.ceil(tiltLR);
-      document.getElementById("tiltFB").innerHTML = Math.ceil(tiltFB);
-      document.getElementById("direction").innerHTML = Math.ceil(dir);
-
-      // Rotate the disc of the compass.
-      // Laat de kompas schijf draaien.
-      var compassDisc = document.getElementById("compassDiscImg");
-      compassDisc.style.webkitTransform = "rotate("+ dir +"deg)";
-      compassDisc.style.MozTransform = "rotate("+ dir +"deg)";
-      compassDisc.style.transform = "rotate("+ dir +"deg)";
-    }
-
+    //No Accelerometer!! Handle the exception!
+  }
 });
 function calcDirection(heading){
   if(heading >= 0 && heading < 90){
@@ -98,7 +68,11 @@ function calcDirection(heading){
   }
 }
 
-function updateCircle(direction){
+function getData(direction){
+  updateCircle(direction, Data);
+}
+
+function updateCircle(direction, Data){
   if(direction == 'NE'){
     var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.stores]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
@@ -132,7 +106,27 @@ function updateCircle(direction){
     $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SW.store/largest+")");
   }
 }
+
 $(document).ready(function(){
+
+  // setTimeout(function(){
+  //   $("#compassScreen").css("display","block");
+  // },3000);
+
+  $('.notification>h4').click(function(){
+    $("#infoScreen").css("display","block");
+    $("#onSite").css("display","none");
+  });
+
+
+  $('#backbutton').click(function(){
+    $("#infoScreen").css("display","none");
+  });
+
+  $('.notifClose').click(function(){
+    $("#onSite").css("display","none");
+  });
+
   $('.category').click(function(){
     $(this).toggleClass('inactive');
   });
@@ -163,27 +157,44 @@ var Data = {
     'art': 10,
     'cafe': 5,
     'restaurant': 6,
-    'stores' : 2
+    'store' : 2
   },
   'SE': {
     'history': 5,
     'art': 20,
     'cafe': 5,
     'restaurant': 5,
-    'stores' : 5
+    'store' : 5
   },
   'NW': {
     'history': 2,
     'art': 0,
     'cafe': 20,
     'restaurant': 22,
-    'stores': 10
+    'store': 10
   },
   'SW': {
     'history': 4,
     'art': 6,
     'cafe': 10,
     'restaurant': 15,
-    'stores': 20
+    'store': 20
+  },
+  'OnSite': [
+    {
+      'Type': 'history',
+      'Name': 'Electrum',
+      'openingHours': 'NA',
+      'description': 'Kista electrum is the main Kista campus of KTH. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    }
+  ],
+  'CloseBy': {
+    'history': 4,
+    'art': 6,
+    'cafe': 10,
+    'restaurant': 15,
+    'store': 20,
+    'direction': 'staright',
+    'distance': '100 meters'
   }
 }

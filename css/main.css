@@ -1,5 +1,6 @@
 body, .container-fluid{
   padding:0 !important;
+  font-family: 'quicksand';
 }
 
 .screen{
@@ -16,6 +17,9 @@ body, .container-fluid{
 /*Splash Screen*/
 #splashScreen{
   z-index: 1;
+  background: white !important;
+  color: black !important;
+  /*display:none;*/
 }
 
 #splashScreen>img{
@@ -36,10 +40,174 @@ body, .container-fluid{
   /*display: none;*/
 }
 
+#royalCircle{
+  width:300px;
+  height:300px;
+  margin:auto;
+  margin-top:150px;
+  margin-left:20px;
+  border-radius: 50%;
+  background: #2ecc71;
+}
+
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 67px solid rgb(46, 204, 113);
+  position: fixed;
+  top: 100px;
+  left: 135px;
+}
+
+.category {
+  width: 0;
+  height: 0;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+  border-top: 118px solid;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  /* border-radius: 50%; */
+  /* background: rebeccapurple; */
+  /* border-top-left-radius: 50%; */
+  position: fixed;
+
+}
+
+.category.cat1{
+  top: 179px;
+  left: 93px;
+  transform: rotate(-7deg);
+  border-top-color: rgb(231, 76, 60);
+}
+
+.category.cat2 {
+  top: 280px;
+  left: 140px;
+  transform: rotate(137deg);
+  border-top-color: rgb(155, 89, 182);
+}
+
+.category.cat3 {
+  top: 227px;
+  left: 41px;
+  transform: rotate(281deg);
+  border-top-color: rgb(241, 196, 15);
+}
+
+.category.cat4 {
+  top: 212px;
+  left: 155px;
+  transform: rotate(65deg);
+  border-top-color: rgb(41, 128, 185);
+}
+
+.category.cat5 {
+  top: 290px;
+  left: 71px;
+  transform: rotate(209deg);
+  border-top-color: rgb(230, 126, 34) ;
+}
+
+.inactive{
+  border-top-color: rgb(149, 165, 166) !important;
+}
+
+.catLogo{
+  position:fixed;
+  width: 50px;
+  z-index:3;
+}
+
+.notification{
+  width:300px;
+  margin:auto;
+  height:100px;
+  background: White;
+  position:fixed;
+  margin-left:15px;
+}
+
+.notification>.notifLogo{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 50px;
+  display: inline-block;
+  z-index:5;
+}
+
+.notification>.notifClose{
+  position:absolute;
+  top:0px;
+  right:0px;
+  width: 25px;
+  padding:5px;
+  opacity:0.5;
+  background:#ececec;
+}
+
+.notification>h3{
+  color:black;
+  display: inline-block;
+  font-family: 'quicksand';
+  margin-left: 5px;
+  font-size:21px;
+}
+
+.notification>h4{
+  color:black;
+  display: block;
+  font-family: 'quicksand';
+  padding-left: 105px;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-size:12px;
+  background: #ececec;
+}
+
+.bottomBar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100vw;
+  height:50px;
+  background: #d8d8d8;
+}
+
+#storeLogo{
+  top: 340px;
+  left: 120px;
+}
+
+#restaurantLogo{
+  top: 235px;
+  left: 225px;
+}
+
+#cafeLogo{
+  top: 250px;
+  left: 85px;
+}
+
+#artLogo{
+  top: 330px;
+  left: 215px;
+}
+
+#historyLogo{
+  top: 190px;
+left: 152px;
+}
+
+/* Review Screen */
 #reviewScreen{
   z-index:3;
   display: none;
   background-color: white;
+  overflow: scroll;
 }
 
 #topbar{
@@ -49,6 +217,7 @@ body, .container-fluid{
   height: 50px;
   width: 380px;
   left: 0px;
+  z-index:4;
 }
 
 #backBtn{
@@ -67,34 +236,34 @@ top:9px;
 left:117px;
 }
 
-#royalCircle{
-  width:300px;
-  height:300px;
-  margin:auto;
-  margin-top:150px;
-  margin-left:20px;
-  border-radius: 50%;
-  background: transparent;
-}
 
 #speakerBtn1{
   position: fixed;
-bottom:30px;
-left:20px;
+  bottom: 0px;
+  width: 50px;
+left:0px;
+padding: 5px;
+background: #ececec;
 display: block;
 }
 
 #speakerBtn2{
 position: fixed;
-bottom:30px;
-left:20px;
+bottom: 0px;
+width: 50px;
+left:0px;
+padding: 5px;
+background: #ececec;
 display: none;
 }
 
 #reviewBtn{
 position: fixed;
-bottom:30px;
-right:20px;
+bottom: 0px;
+    width: 50px;
+    right: 0px;
+    padding: 5px;
+    background: #ececec;
 }
 
 #historytext{
@@ -136,10 +305,6 @@ right:20px;
   top:95px;
   left:246px;
 }
-
-/*#historical>img{
-
-}*/
 
 #arttext{
   position: relative;
@@ -227,67 +392,74 @@ right:20px;
   left:14px;
 }
 
-.arrow {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 67px solid rgb(46, 204, 113);
+
+/* Information Screen */
+#infoScreen{
+  height:100vh;
+  width:100vw;
   position: fixed;
-  top: 100px;
-  left: 135px;
+  z-index:4;
+  display: none;
+  background-color: white;
+  padding:0;
+  color:black;
+  overflow: scroll;
 }
 
-.category {
-  width: 0;
-  height: 0;
-  border-left: 85px solid transparent;
-  border-right: 85px solid transparent;
-  border-top: 118px solid;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  /* border-radius: 50%; */
-  /* background: rebeccapurple; */
-  /* border-top-left-radius: 50%; */
-  position: fixed;
+
+ #picTitle{
+   font-size: 27px;
+     font-weight: 350;
+     /* text-align: center; */
+     padding-left: 45px;
+     background: #ececec;
+}
+ #starbutton{
+   position: absolute;
+   z-index: 6;
+   left: 0px;
+   top: 199px;
+   width: 38px;
+   padding: 5px;
+   background: darkgrey;
 
 }
-
-.category.cat1{
-  top: 179px;
-  left: 93px;
-  transform: rotate(-7deg);
-  border-top-color: rgb(231, 76, 60);
+ #backbutton{
+  position:fixed;
+  z-index:6;
+  left:20px;
+  top:15px;
+  width:40px;
+  height:40px;
 }
 
-.category.cat2 {
-  top: 280px;
-  left: 140px;
-  transform: rotate(137deg);
-  border-top-color: rgb(155, 89, 182);
+ #openingHours{
+   text-align: center;
+   font-size: 13px;
+   margin: 12px;
+   font-style: italic;
 }
+ #infoText{
+  line-height: 1.8em;
+  left:10px;
+  right:10px;
+  font-size: 1.1em;
+  margin:12px;
 
-.category.cat3 {
-  top: 227px;
-  left: 41px;
-  transform: rotate(281deg);
-  border-top-color: rgb(241, 196, 15);
+
 }
+#moreText{
+  line-height: 1.8em;
+  left:10px;
+  right:10px;
+  font-size:1.1em;
+  margin:12px;
+  display: none;
 
-.category.cat4 {
-  top: 212px;
-  left: 155px;
-  transform: rotate(65deg);
-  border-top-color: rgb(41, 128, 185);
+
 }
-
-.category.cat5 {
-  top: 290px;
-  left: 71px;
-  transform: rotate(209deg);
-  border-top-color: rgb(230, 126, 34) ;
-}
-
-.inactive{
-  border-top-color: rgb(149, 165, 166) !important;
+ #moreButton{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
