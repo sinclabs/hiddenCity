@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {
       var dir = eventData.alpha
-      getData(dir);
+      updateCircle(dir);
     }, false);
   }
   else {
@@ -68,11 +68,7 @@ function calcDirection(heading){
   }
 }
 
-function getData(direction){
-  updateCircle(direction, Data);
-}
-
-function updateCircle(direction, Data){
+function updateCircle(direction){
   if(direction == 'NE'){
     var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.stores]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
