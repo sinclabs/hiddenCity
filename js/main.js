@@ -88,4 +88,25 @@ $(document).ready(function(){
   $('.category').click(function(){
     $(this).toggleClass('inactive');
   });
+
+
+	 $("#reviewBtn").click(function(){
+		 $("#reviewScreen").css("display", "block");
+	 });
+
+	 $("#backBtn").click(function(){
+		 $("#reviewScreen").css("display", "none");
+		 $("#compassScreen").css("display", "block");
+	 });
+
+	 $("#speakerBtn1").click(function(){
+		 $("#speakerBtn1").css("display", "none");
+		 $("#speakerBtn2").css("display", "block");
+	 });
+	 $("#speakerBtn2").click(function(){
+		 $("#speakerBtn2").css("display", "none");
+		 $("#speakerBtn1").css("display", "block");
+	 });
+
+
 });

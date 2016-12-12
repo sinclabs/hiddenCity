@@ -36,6 +36,37 @@ body, .container-fluid{
   /*display: none;*/
 }
 
+#reviewScreen{
+  z-index:3;
+  display: none;
+  background-color: white;
+}
+
+#topbar{
+  background-color: powderblue;
+  display: block;
+  position: fixed;
+  height: 50px;
+  width: 380px;
+  left: 0px;
+}
+
+#backBtn{
+  position: fixed;
+  top:9px;
+  left:8px;
+}
+
+#reviewTitle{
+  font-size:24px;
+  color: black;
+  text-align: center;
+/*  font-weight: 50px;*/
+position: fixed;
+top:9px;
+left:117px;
+}
+
 #royalCircle{
   width:300px;
   height:300px;
@@ -44,6 +75,156 @@ body, .container-fluid{
   margin-left:20px;
   border-radius: 50%;
   background: rgb(46, 204, 113);
+}
+
+#speakerBtn1{
+  position: fixed;
+bottom:30px;
+left:20px;
+display: block;
+}
+
+#speakerBtn2{
+position: fixed;
+bottom:30px;
+left:20px;
+display: none;
+}
+
+#reviewBtn{
+position: fixed;
+bottom:30px;
+right:20px;
+}
+
+#historytext{
+  position: relative;
+  font-size:19px;
+  color: black;
+  top:60px;
+  left:3px;
+}
+
+#gamlastan{
+  height: 70px;
+  width:70px;
+  position: absolute;
+  top:95px;
+  left:14px;
+}
+
+#radhuset{
+  height: 70px;
+  width:70px;
+  position: absolute;
+  top:95px;
+  left: 92px;
+}
+
+#vasa{
+  height: 70px;
+  width:70px;
+  position: absolute;
+  top:95px;
+  left: 169px;
+}
+
+#drottningholm{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:95px;
+  left:246px;
+}
+
+/*#historical>img{
+
+}*/
+
+#arttext{
+  position: relative;
+  font-size:19px;
+  color: black;
+  top:140px;
+  left:3px;
+}
+
+#dramaten{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:210px;
+  left:14px;
+}
+#fotografiska{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:210px;
+  left:92px;
+}
+#skansen{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:210px;
+  left:169px;
+}
+#drinktext{
+  position: absolute;
+  font-size:19px;
+  color: black;
+  top:290px;
+  left:14px;
+}
+#cafe{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:325px;
+  left:14px;
+}
+#foodtext{
+  position: relative;
+  font-size:19px;
+  color: black;
+  top:331px;
+  left:3px;
+}
+#restaurant1{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:442px;
+  left:14px;
+}
+#restaurant2{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:442px;
+  left:169px;
+}
+#restaurant3{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:442px;
+  left:92px;
+}
+#storetext{
+  position: relative;
+  font-size:19px;
+  color: black;
+  top:410px;
+  left:2px;
+}
+#ahlens{
+  height:70px;
+  width:70px;
+  position:absolute;
+  top:555px;
+  left:14px;
 }
 
 .arrow {
