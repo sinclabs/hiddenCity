@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       // Call the function to use the data on the page.
       // Roep de functie op om de data op de pagina te gebruiken.
-      document.getElementById("heading").innerHTML = dir;
+      document.getElementById("heading").innerHTML = calcDirection(dir);
       //deviceOrientationHandler(tiltLR, tiltFB, dir);
     }, false);
   }
