@@ -71,11 +71,42 @@ function calcDirection(heading){
 function updateCircle(direction){
   if(direction == 'NE'){
     var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.store]);
-    $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
-    $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NE.art/largest+")");
-    $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NE.cafe/largest+")");
-    $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NE.restaurant/largest+")");
-    $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NE.store/largest+")");
+    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
+    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NE.art/largest+")");
+    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NE.cafe/largest+")");
+    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NE.restaurant/largest+")");
+    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NE.store/largest+")");
+    redraw(ctx, Data.NE.history/largest, Data.NE.art/largest, Data.NE.cafe/largest, Data.NE.restaurant/largest, Data.NE.store/largest)
+    // for(var i=0; i<=10; i++){
+    //   var a1, a2, a3, a4, a5;
+    //   if(i < (Data.NE.history/largest)*10)
+    //     a1 = i/10;
+    //   else
+    //     a1 = Data.NE.history/largest;
+    //
+    //   if(i < (Data.NE.art/largest)*10)
+    //     a2 = i/10;
+    //   else
+    //     a2 = Data.NE.art/largest;
+    //
+    //   if(i < (Data.NE.cafe/largest)*10)
+    //     a3 = i/10;
+    //   else
+    //     a3 = Data.NE.cafe/largest;
+    //
+    //   if(i < (Data.NE.restaurant/largest)*10)
+    //     a4 = i/10;
+    //   else
+    //     a4 = Data.NE.restaurant/largest;
+    //
+    //   if(i < (Data.NE.store/largest)*10)
+    //     a5 = i/10;
+    //   else
+    //     a5 = Data.NE.store/largest;
+    //
+    //   setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
+    // }
+
   }
   else if(direction == 'SE'){
     var largest = Math.max.apply(Math, [Data.SE.history, Data.SE.art, Data.SE.cafe, Data.SE.restaurant, Data.SE.store]);
@@ -103,12 +134,22 @@ function updateCircle(direction){
   }
 }
 
+var canvas;
+var ctx;
 $(document).ready(function(){
 
   // setTimeout(function(){
   //   $("#compassScreen").css("display","block");
   // },3000);
-
+  canvas = document.getElementById('canvas');
+  canvas.width = $(window).width(); //document.width is obsolete
+  canvas.height = $(window).height();; //document.height is obsolete
+  canvasW = canvas.width;
+  canvasH = canvas.height;
+  ctx = canvas.getContext('2d');
+  ctx.translate(0.5, 0.5);
+  ctx.imageSmoothingEnabled = true;
+  redraw(ctx, 1, 1, 1, 1, 1);
   $('.notification>h4').click(function(){
     $("#infoScreen").css("display","block");
     $("#onSite").css("display","none");
@@ -147,6 +188,64 @@ $(document).ready(function(){
 	 });
 });
 
+// in case you like using degrees
+function toRadians(deg) {
+    return deg * Math.PI / 180
+}
+
+function redraw(ctx, a1, a2, a3, a4, a5){
+    var cx = $(window).width()/2;
+    var cy  =$(window).height()/2;
+
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = "white";
+
+    ctx.fillStyle = 'rgba(236,100,'+a1+', '+a1+')'
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,130,0,toRadians(72));
+    ctx.lineTo(cx,cy);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(246, 71, 71, '+a2+')'
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,130,toRadians(72),toRadians(144));
+    ctx.lineTo(cx,cy);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(145, 61, 136, '+a3+')'
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,130,toRadians(144),toRadians(216));
+    ctx.lineTo(cx,cy);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(31, 58, 147, '+a4+')'
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,130,toRadians(216),toRadians(288));
+    ctx.lineTo(cx,cy);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(249, 105, 14, '+a5+')'
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,130,toRadians(288),toRadians(360));
+    ctx.lineTo(cx,cy);
+    ctx.closePath();
+    ctx.fill();
+
+}
 var Data = {
   'NE': {
     'history': 20,
