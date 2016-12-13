@@ -236,7 +236,7 @@ $(document).ready(function(){
 
   setTimeout(function(){
     $("#compassScreen").css("display","block");
-  },5000);
+  },3000);
   canvas = document.getElementById('canvas');
   canvas.width = $(window).width(); //document.width is obsolete
   canvas.height = $(window).height();; //document.height is obsolete
