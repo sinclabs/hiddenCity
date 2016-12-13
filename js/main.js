@@ -1,10 +1,10 @@
-//google.maps.event.addDomListener(window, 'load', init);
+//google.maps.event.addDomListeSWr(window, 'load', init);
 // function mapInit() {
 //                // Basic options for a simple Google Map
 //                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 //                   if(navigator.geolocation) {
 //                     navigator.geolocation.getCurrentPosition(function (position) {
-//                       initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//                       initialLocation = SWw google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 //                       map.setCenter(initialLocation);
 //                     });
 //                   }
@@ -16,7 +16,7 @@
 //                    zoom: 14,
 //
 //                    // The latitude and longitude to center the map (always required)
-//                    center: new google.maps.LatLng(59.3269414, 18.0681448), // Stockholm
+//                    center: SWw google.maps.LatLng(59.3269414, 18.0681448), // Stockholm
 //
 //
 //
@@ -24,27 +24,27 @@
 //
 //                    // How you would like to style the map.
 //                    // This is where you would paste any style found on Snazzy Maps.
-//                    styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]               };
+//                    styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightSWss":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.liSW","elementType":"geometry","stylers":[{"visibility":"on"},{"lightSWss":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]               };
 //
 //                // Get the HTML DOM element that will contain your map
 //                // We are using a div with id="map" seen below in the <body>
 //                var mapElement = document.getElementById('map');
 //
-//                // Create the Google Map using our element and options defined above
-//                var map = new google.maps.Map(mapElement, mapOptions);
+//                // Create the Google Map using our element and options defiSWd above
+//                var map = SWw google.maps.Map(mapElement, mapOptions);
 //
 //                /* Let's also add a marker while we're at it
-//                var marker = new google.maps.Marker({
-//                    position: new google.maps.LatLng(59.3269414, 18.0681448),
+//                var marker = SWw google.maps.Marker({
+//                    position: SWw google.maps.LatLng(59.3269414, 18.0681448),
 //                    map: map,
 //                    title: 'You are here!'
 //                });
 //                */
 //            }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-	if (window.DeviceOrientationEvent) {
-    window.addEventListener('deviceorientation', function(eventData) {
+document.addEventListeSWr("DOMContentLoaded", function(event) {
+	if (window.DeviceOrientatioSWvent) {
+    window.addEventListeSWr('deviceorientation', function(eventData) {
       var dir = eventData.alpha
       updateCircle(calcDirection(dir));
     }, false);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 function calcDirection(heading){
   if(heading >= 0 && heading < 90){
-    return 'NE';
+    return 'SW';
   }
   else if(heading >= 90 && heading < 180){
     return 'SE';
@@ -69,68 +69,157 @@ function calcDirection(heading){
 }
 
 function updateCircle(direction){
-  if(direction == 'NE'){
-    var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.store]);
-    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
-    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NE.art/largest+")");
-    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NE.cafe/largest+")");
-    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NE.restaurant/largest+")");
-    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NE.store/largest+")");
-    redraw(ctx, Data.NE.history/largest, Data.NE.art/largest, Data.NE.cafe/largest, Data.NE.restaurant/largest, Data.NE.store/largest)
-    // for(var i=0; i<=10; i++){
-    //   var a1, a2, a3, a4, a5;
-    //   if(i < (Data.NE.history/largest)*10)
-    //     a1 = i/10;
-    //   else
-    //     a1 = Data.NE.history/largest;
-    //
-    //   if(i < (Data.NE.art/largest)*10)
-    //     a2 = i/10;
-    //   else
-    //     a2 = Data.NE.art/largest;
-    //
-    //   if(i < (Data.NE.cafe/largest)*10)
-    //     a3 = i/10;
-    //   else
-    //     a3 = Data.NE.cafe/largest;
-    //
-    //   if(i < (Data.NE.restaurant/largest)*10)
-    //     a4 = i/10;
-    //   else
-    //     a4 = Data.NE.restaurant/largest;
-    //
-    //   if(i < (Data.NE.store/largest)*10)
-    //     a5 = i/10;
-    //   else
-    //     a5 = Data.NE.store/largest;
-    //
-    //   setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
-    // }
+  if(direction == 'SW'){
+    var largest = Math.max.apply(Math, [Data.SW.history, Data.SW.art, Data.SW.cafe, Data.SW.restaurant, Data.SW.store]);
+    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SW.history/largest+")");
+    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SW.art/largest+")");
+    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SW.cafe/largest+")");
+    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.SW.restaurant/largest+")");
+    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SW.store/largest+")");
+    //redraw(ctx, Data.SW.history/largest, Data.SW.art/largest, Data.SW.cafe/largest, Data.SW.restaurant/largest, Data.SW.store/largest)
+    for(var i=0; i<=10; i++){
+      var a1, a2, a3, a4, a5;
+      if(i < (Data.SW.history/largest)*10)
+        a1 = i/10;
+      else
+        a1 = Data.SW.history/largest;
+
+      if(i < (Data.SW.art/largest)*10)
+        a2 = i/10;
+      else
+        a2 = Data.SW.art/largest;
+
+      if(i < (Data.SW.cafe/largest)*10)
+        a3 = i/10;
+      else
+        a3 = Data.SW.cafe/largest;
+
+      if(i < (Data.SW.restaurant/largest)*10)
+        a4 = i/10;
+      else
+        a4 = Data.SW.restaurant/largest;
+
+      if(i < (Data.SW.store/largest)*10)
+        a5 = i/10;
+      else
+        a5 = Data.NE.store/largest;
+
+      setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
+    }
 
   }
   else if(direction == 'SE'){
     var largest = Math.max.apply(Math, [Data.SE.history, Data.SE.art, Data.SE.cafe, Data.SE.restaurant, Data.SE.store]);
-    $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SE.history/largest+")");
-    $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SE.art/largest+")");
-    $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SE.cafe/largest+")");
-    $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.SE.restaurant/largest+")");
-    $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SE.store/largest+")");
+    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SE.history/largest+")");
+    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SE.art/largest+")");
+    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SE.cafe/largest+")");
+    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.SE.restaurant/largest+")");
+    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SE.store/largest+")");
+
+    for(var i=0; i<=10; i++){
+      var a1, a2, a3, a4, a5;
+      if(i < (Data.SE.history/largest)*10)
+        a1 = i/10;
+      else
+        a1 = Data.SE.history/largest;
+
+      if(i < (Data.SE.art/largest)*10)
+        a2 = i/10;
+      else
+        a2 = Data.SE.art/largest;
+
+      if(i < (Data.SE.cafe/largest)*10)
+        a3 = i/10;
+      else
+        a3 = Data.SE.cafe/largest;
+
+      if(i < (Data.SE.restaurant/largest)*10)
+        a4 = i/10;
+      else
+        a4 = Data.SE.restaurant/largest;
+
+      if(i < (Data.SE.store/largest)*10)
+        a5 = i/10;
+      else
+        a5 = Data.SE.store/largest;
+
+      setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
+    }
   }
   else if(direction == 'NW'){
     var largest = Math.max.apply(Math, [Data.NW.history, Data.NW.art, Data.NW.cafe, Data.NW.restaurant, Data.NW.store]);
-    $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NW.history/largest+")");
-    $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NW.art/largest+")");
-    $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NW.cafe/largest+")");
-    $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NW.restaurant/largest+")");
-    $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NW.store/largest+")");
+    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NW.history/largest+")");
+    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NW.art/largest+")");
+    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NW.cafe/largest+")");
+    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.NW.restaurant/largest+")");
+    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NW.store/largest+")");
+
+    for(var i=0; i<=10; i++){
+      var a1, a2, a3, a4, a5;
+      if(i < (Data.NW.history/largest)*10)
+        a1 = i/10;
+      else
+        a1 = Data.NW.history/largest;
+
+      if(i < (Data.NW.art/largest)*10)
+        a2 = i/10;
+      else
+        a2 = Data.NW.art/largest;
+
+      if(i < (Data.NW.cafe/largest)*10)
+        a3 = i/10;
+      else
+        a3 = Data.NW.cafe/largest;
+
+      if(i < (Data.NW.restaurant/largest)*10)
+        a4 = i/10;
+      else
+        a4 = Data.NW.restaurant/largest;
+
+      if(i < (Data.NW.store/largest)*10)
+        a5 = i/10;
+      else
+        a5 = Data.NW.store/largest;
+
+      setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
+    }
   }
   else if(direction == 'SW'){
     var largest = Math.max.apply(Math, [Data.SW.history, Data.SW.art, Data.SW.cafe, Data.SW.restaurant, Data.SW.store]);
-    $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SW.history/largest+")");
-    $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SW.art/largest+")");
-    $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SW.cafe/largest+")");
-    $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.SW.restaurant/largest+")");
-    $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SW.store/largest+")");
+    // $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SW.history/largest+")");
+    // $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SW.art/largest+")");
+    // $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SW.cafe/largest+")");
+    // $('.category.cat4').css("border-top-color","rgba(41, 128, 185,"+Data.SW.restaurant/largest+")");
+    // $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SW.store/largest+")");
+    for(var i=0; i<=10; i++){
+      var a1, a2, a3, a4, a5;
+      if(i < (Data.NE.history/largest)*10)
+        a1 = i/10;
+      else
+        a1 = Data.SW.history/largest;
+
+      if(i < (Data.SW.art/largest)*10)
+        a2 = i/10;
+      else
+        a2 = Data.SW.art/largest;
+
+      if(i < (Data.SW.cafe/largest)*10)
+        a3 = i/10;
+      else
+        a3 = Data.SW.cafe/largest;
+
+      if(i < (Data.SW.restaurant/largest)*10)
+        a4 = i/10;
+      else
+        a4 = Data.SW.restaurant/largest;
+
+      if(i < (Data.SW.store/largest)*10)
+        a5 = i/10;
+      else
+        a5 = Data.SW.store/largest;
+
+      setTimeout(redraw(ctx, a1, a2, a3, a4, a5),1000);
+    }
   }
 }
 
@@ -152,16 +241,16 @@ $(document).ready(function(){
   redraw(ctx, 1, 1, 1, 1, 1);
   $('.notification>h4').click(function(){
     $("#infoScreen").css("display","block");
-    $("#onSite").css("display","none");
+    $("#onSite").css("display","noSW");
   });
 
 
   $('#backbutton').click(function(){
-    $("#infoScreen").css("display","none");
+    $("#infoScreen").css("display","noSW");
   });
 
   $('.notifClose').click(function(){
-    $("#onSite").css("display","none");
+    $("#onSite").css("display","noSW");
   });
 
   $('.category').click(function(){
@@ -174,16 +263,16 @@ $(document).ready(function(){
 	 });
 
 	 $("#backBtn").click(function(){
-		 $("#reviewScreen").css("display", "none");
+		 $("#reviewScreen").css("display", "noSW");
 		 $("#compassScreen").css("display", "block");
 	 });
 
 	 $("#speakerBtn1").click(function(){
-		 $("#speakerBtn1").css("display", "none");
+		 $("#speakerBtn1").css("display", "noSW");
 		 $("#speakerBtn2").css("display", "block");
 	 });
 	 $("#speakerBtn2").click(function(){
-		 $("#speakerBtn2").css("display", "none");
+		 $("#speakerBtn2").css("display", "noSW");
 		 $("#speakerBtn1").css("display", "block");
 	 });
 });
@@ -196,16 +285,16 @@ function toRadians(deg) {
 function redraw(ctx, a1, a2, a3, a4, a5){
     var cx = $(window).width()/2;
     var cy  =$(window).height()/2;
-
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.shadowBlur = 0;
     ctx.shadowColor = "white";
 
-    ctx.fillStyle = 'rgba(236,100,'+a1+', '+a1+')'
+    ctx.fillStyle = 'rgba(236,100,75, '+a1+')'
 
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,130,0,toRadians(72));
-    ctx.lineTo(cx,cy);
+    ctx.liSWTo(cx,cy);
     ctx.closePath();
     ctx.fill();
 
@@ -214,7 +303,7 @@ function redraw(ctx, a1, a2, a3, a4, a5){
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,130,toRadians(72),toRadians(144));
-    ctx.lineTo(cx,cy);
+    ctx.liSWTo(cx,cy);
     ctx.closePath();
     ctx.fill();
 
@@ -223,7 +312,7 @@ function redraw(ctx, a1, a2, a3, a4, a5){
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,130,toRadians(144),toRadians(216));
-    ctx.lineTo(cx,cy);
+    ctx.liSWTo(cx,cy);
     ctx.closePath();
     ctx.fill();
 
@@ -232,7 +321,7 @@ function redraw(ctx, a1, a2, a3, a4, a5){
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,130,toRadians(216),toRadians(288));
-    ctx.lineTo(cx,cy);
+    ctx.liSWTo(cx,cy);
     ctx.closePath();
     ctx.fill();
 
@@ -241,13 +330,13 @@ function redraw(ctx, a1, a2, a3, a4, a5){
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,130,toRadians(288),toRadians(360));
-    ctx.lineTo(cx,cy);
+    ctx.liSWTo(cx,cy);
     ctx.closePath();
     ctx.fill();
 
 }
 var Data = {
-  'NE': {
+  'SW': {
     'history': 20,
     'art': 10,
     'cafe': 5,
