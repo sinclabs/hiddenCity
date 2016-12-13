@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {
       var dir = eventData.alpha
-      updateCircle(dir);
+      updateCircle(calcDirection(dir));
     }, false);
   }
   else {
