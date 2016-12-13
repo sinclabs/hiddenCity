@@ -131,7 +131,7 @@ body, .container-fluid{
   position:fixed;
   width: 50px;
   z-index:3;
-  display:none;
+  /*display:none;*/
 }
 
 .notification{
@@ -179,7 +179,13 @@ body, .container-fluid{
   font-size:12px;
   background: #ececec;
 }
-
+.compassImg{
+  position: fixed;
+z-index: 1;
+top: 213px;
+left: 115px;
+width: 134px;
+}
 .bottomBar{
   position:fixed;
   bottom:0;
@@ -190,28 +196,28 @@ body, .container-fluid{
 }
 
 #storeLogo{
-  top: 340px;
-  left: 120px;
+  top: 197px;
+  left: 223px;
 }
 
 #restaurantLogo{
-  top: 235px;
-  left: 225px;
+  top: 176px;
+    left: 132px;
 }
 
 #cafeLogo{
   top: 250px;
-  left: 85px;
+  left: 75px;
 }
 
 #artLogo{
-  top: 330px;
-  left: 215px;
+  top: 334px;
+left: 132px;
 }
 
 #historyLogo{
-  top: 190px;
-left: 152px;
+  top: 302px;
+  left: 221px;
 }
 
 /* Review Screen */

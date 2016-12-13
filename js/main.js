@@ -45,7 +45,11 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 	if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {
-      var dir = eventData.alpha
+      var dir = eventData.alpha;
+      var compassDisc = document.getElementsByClassName("compassImg")[0];
+      compassDisc.style.webkitTransform = "rotate("+ dir +"deg)";
+      compassDisc.style.MozTransform = "rotate("+ dir +"deg)";
+      compassDisc.style.transform = "rotate("+ dir +"deg)";
       updateCircle(calcDirection(dir));
     }, false);
   }
