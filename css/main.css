@@ -37,7 +37,7 @@ body, .container-fluid{
 /*compassScreen*/
 #compassScreen{
   z-index: 2;
-  /*display: none;*/
+  display: none;
 }
 
 #canvas{
