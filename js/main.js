@@ -70,7 +70,7 @@ function calcDirection(heading){
 
 function updateCircle(direction){
   if(direction == 'NE'){
-    var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.stores]);
+    var largest = Math.max.apply(Math, [Data.NE.history, Data.NE.art, Data.NE.cafe, Data.NE.restaurant, Data.NE.store]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NE.history/largest+")");
     $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NE.art/largest+")");
     $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NE.cafe/largest+")");
@@ -78,7 +78,7 @@ function updateCircle(direction){
     $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NE.store/largest+")");
   }
   else if(direction == 'SE'){
-    var largest = Math.max.apply(Math, [Data.SE.history, Data.SE.art, Data.SE.cafe, Data.SE.restaurant, Data.SE.stores]);
+    var largest = Math.max.apply(Math, [Data.SE.history, Data.SE.art, Data.SE.cafe, Data.SE.restaurant, Data.SE.store]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SE.history/largest+")");
     $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SE.art/largest+")");
     $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SE.cafe/largest+")");
@@ -86,7 +86,7 @@ function updateCircle(direction){
     $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.SE.store/largest+")");
   }
   else if(direction == 'NW'){
-    var largest = Math.max.apply(Math, [Data.NW.history, Data.NW.art, Data.NW.cafe, Data.NW.restaurant, Data.NW.stores]);
+    var largest = Math.max.apply(Math, [Data.NW.history, Data.NW.art, Data.NW.cafe, Data.NW.restaurant, Data.NW.store]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.NW.history/largest+")");
     $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.NW.art/largest+")");
     $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.NW.cafe/largest+")");
@@ -94,7 +94,7 @@ function updateCircle(direction){
     $('.category.cat5').css("border-top-color","rgba(230, 126, 34,"+Data.NW.store/largest+")");
   }
   else if(direction == 'SW'){
-    var largest = Math.max.apply(Math, [Data.SW.history, Data.SW.art, Data.SW.cafe, Data.SW.restaurant, Data.SW.stores]);
+    var largest = Math.max.apply(Math, [Data.SW.history, Data.SW.art, Data.SW.cafe, Data.SW.restaurant, Data.SW.store]);
     $('.category.cat1').css("border-top-color","rgba(231, 76, 60,"+Data.SW.history/largest+")");
     $('.category.cat2').css("border-top-color","rgba(155, 89, 182,"+Data.SW.art/largest+")");
     $('.category.cat3').css("border-top-color","rgba(241, 196, 15,"+Data.SW.cafe/largest+")");
